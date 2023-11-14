@@ -16,25 +16,39 @@ class HomePage extends StatelessWidget {
         body : Column(
 
           children: [
-            Container(
-              margin: EdgeInsets.all(8),
-              padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-              decoration: BoxDecoration(
-                  color: Colors.green
-              ),
-              child: Text("Persegi"),
-            ),
+            CustomMenu(imageAssets: "aset/20220419_105837gambar_bangun_datar_persegi.png", title: "Persegi"),
+            CustomMenu(imageAssets: "aset/20220419_030155Jenis-jenis_Bangun_Datar_Segitiga.jpg", title: "Segitiga"),
 
-              Container(
-                margin: EdgeInsets.all(8),
-                padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                decoration: BoxDecoration(
-                   color: Colors.green
-              ),
-              child: Text("Segitiga"),
-            )
           ],
      ),
+    );
+  }
+}
+
+class CustomMenu extends StatelessWidget {
+  const CustomMenu({
+    super.key, required this.imageAssets, required this.title,
+  });
+  final String imageAssets;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(8),
+      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      decoration: BoxDecoration(
+          color: Colors.green
+      ),
+      child: Column(
+        children: [
+          Image.asset(
+            imageAssets,
+            height: 100,
+          ),
+          Text(title),
+        ],
+      ),
     );
   }
 }
